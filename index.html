@@ -5,8 +5,9 @@
   <body>
     <iframe src="https://identity.ic0.app/#authorize" allow="publickey-credentials-get" name="identityWindow" />
       <script type="text/javascript">
-        document.getElementById('cross_domain_page').contentWindow.postMessage(.......);
+        //document.getElementById('cross_domain_page').contentWindow.postMessage(.......);
         window.addEventListener("message", event => {
+          console.log(event);
           if (event.origin != window.location.origin) return;
             console.warn(event.source.frameElement.name);
         });
