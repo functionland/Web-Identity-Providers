@@ -7,8 +7,8 @@
       <script type="text/javascript">
         //document.getElementById('cross_domain_page').contentWindow.postMessage(.......);
         window.addEventListener("message", event => {
-          console.log(event);
-            alert(event);
+          console.log(event.data);
+            alert(event.data);
         }, false);
       </script>
   </body>
