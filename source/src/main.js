@@ -17,7 +17,7 @@ const init = async () => {
     const principal = identity.getPrincipal();
     if (identity instanceof DelegationIdentity) {
 		
-      const publicKey = identity.getDelegation().publicKey;
+      const publicKey = (identity.getDelegation().toJSON()).publicKey.toString();
 	  //redirect to app here
 	  const appUri = "exp://192.168.68.117:19000/--/Photos?principal="+principal+"&publicKey="+publicKey;
 	  window.location.replace(appUri);
