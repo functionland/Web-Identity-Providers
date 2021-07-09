@@ -9,7 +9,7 @@
         window.addEventListener("message", event => {
           console.log(event);
           if (event.origin != window.location.origin) return;
-            console.warn(event.source.frameElement.name);
+            alert(event.source.frameElement.name);
         }, false);
       </script>
   </body>
