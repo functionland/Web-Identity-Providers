@@ -8,8 +8,7 @@
         //document.getElementById('cross_domain_page').contentWindow.postMessage(.......);
         window.addEventListener("message", event => {
           console.log(event);
-          if (event.origin != window.location.origin) return;
-            alert(event.source.frameElement.name);
+            alert(event);
         }, false);
       </script>
   </body>
