@@ -4,6 +4,7 @@ import { AuthClient } from "@dfinity/auth-client";
 
 const signInBtn = document.getElementById("signinBtn");
 const signOutBtn = document.getElementById("signoutBtn");
+const msg = document.getElementById("msg");
 
 let authClient;
 
@@ -18,8 +19,12 @@ const init = async () => {
 		
       const publicKey = identity.getDelegation().publicKey;
 	  //redirect to app here
-	  window.location.replace("exp://192.168.68.117:19000/--/Photos?principal="+principal+"&publicKey="+publicKey);
-    }
+	  const appUri = "exp://192.168.68.117:19000/--/Photos?principal="+principal+"&publicKey="+publicKey;
+	  window.location.replace(appUri);
+	  msg.innerText = "Redirecting to application now. app="+appUri;
+    }else{
+		msg.innerText = "Error for "+principal;
+	}
   }
 
   updateView();
