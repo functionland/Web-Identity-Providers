@@ -19,7 +19,7 @@ const init = async () => {
 		
       const publicKey = (identity.getDelegation().toJSON()).publicKey.toString();
 	  //redirect to app here
-	  const appUri = "exp://192.168.68.117:19000/--/Photos?principal="+principal+"&publicKey="+publicKey;
+	  const appUri = "exp://192.168.68.117:19000/--/Photos?principal="+principal+"&publicKey=";
 	  msg.innerText = "Redirecting to application now. app="+appUri;
 	  window.location = appUri;
     }else{
