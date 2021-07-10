@@ -28,6 +28,7 @@ const init = async () => {
 	  
 	  setTimeout(()=>{
 		window.location = appUri;
+		location.reload();
 	  },20);
     }
   }
