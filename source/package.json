@@ -6,6 +6,7 @@
     "@dfinity/auth-client": "^0.8.9",
     "@dfinity/authentication": "^0.8.9",
     "@dfinity/identity": "^0.8.9",
+    "@material/snackbar": "^11.0.0",
     "assert": "^2.0.0",
     "buffer": "^6.0.3",
     "events": "^3.2.0",

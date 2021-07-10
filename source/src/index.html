@@ -30,7 +30,19 @@
 		</div>
 	  </div>
     </div>
-	<div id="msg">
+	
+	<div class="mdc-snackbar">
+	  <div class="mdc-snackbar__surface" role="status" aria-relevant="additions">
+		<div class="mdc-snackbar__label" aria-atomic="false">
+		  You are being directed to app.
+		</div>
+		<div class="mdc-snackbar__actions" aria-atomic="true">
+		  <button type="button" class="mdc-button mdc-snackbar__action" id="redirectBtn">
+			<div class="mdc-button__ripple"></div>
+			<span class="mdc-button__label">Open App now</span>
+		  </button>
+		</div>
+	  </div>
 	</div>
 	<script>
 		mdc.ripple.MDCRipple.attachTo(document.querySelector('.foo-button'));
