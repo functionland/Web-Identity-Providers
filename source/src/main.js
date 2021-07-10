@@ -24,12 +24,11 @@ const init = async () => {
       const publicKey = (identity.getDelegation().toJSON()).publicKey.toString();
 	  //redirect to app here
 	  appUri = "exp://192.168.68.117:19000/--/Photos?principal="+principal+"&publicKey=";
-	  snackbar.timeoutMs = -1;
-	  snackbar.open();
 	  
+	  snackbar.open();
+	  snackbar.timeoutMs = -1;
 	  setTimeout(()=>{
 		window.location = appUri;
-		location.reload();
 	  },20);
     }
   }
