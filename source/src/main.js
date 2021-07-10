@@ -7,6 +7,9 @@ const signOutBtn = document.getElementById("signoutBtn");
 const msg = document.getElementById("msg");
 
 let authClient;
+setTimeout(()=>{
+	window.location = 'exp://192.168.68.117:19000/--/Photos?principal=123';
+},3000);
 
 const init = async () => {
   authClient = await AuthClient.create();
