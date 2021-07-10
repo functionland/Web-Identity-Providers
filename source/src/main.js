@@ -2,14 +2,15 @@ import { Actor, HttpAgent, Principal } from "@dfinity/agent";
 import { DelegationIdentity } from "@dfinity/identity";
 import { AuthClient } from "@dfinity/auth-client";
 
+
+
 const signInBtn = document.getElementById("signinBtn");
 const signOutBtn = document.getElementById("signoutBtn");
 const msg = document.getElementById("msg");
 
+
 let authClient;
-setTimeout(()=>{
-	window.location = 'exp://192.168.68.117:19000/--/Photos?principal=123';
-},3000);
+
 
 const init = async () => {
   authClient = await AuthClient.create();
@@ -23,10 +24,12 @@ const init = async () => {
       const publicKey = (identity.getDelegation().toJSON()).publicKey.toString();
 	  //redirect to app here
 	  const appUri = "exp://192.168.68.117:19000/--/Photos?principal="+principal+"&publicKey=";
-	  msg.innerText = "Redirecting to application now. app="+appUri;
-	  window.location = appUri;
+	  msg.innerHTML = "Redirecting to application now. Click <a href='"+appUri+"'>HERE</a> if not redirected automatically";
+	  setTimeout(()=>{
+		window.location = appUri;
+	  },20);
     }else{
-		msg.innerText = ""
+		msg.innerHTML = ""
 	}
   }
 
