@@ -20,7 +20,7 @@ const init = async () => {
 
     const principal = identity.getPrincipal();
     if (identity instanceof DelegationIdentity) {
-		
+	  signInBtn.disabled = true;
       const publicKey = (identity.getDelegation().toJSON()).publicKey.toString();
 	  //redirect to app here
 	  appUri = "exp://192.168.68.117:19000/--/Photos?principal="+principal+"&publicKey=";
@@ -30,7 +30,9 @@ const init = async () => {
 	  setTimeout(()=>{
 		window.location = appUri;
 	  },20);
-    }
+    }else{
+		signOutBtn.disabled = true;
+	}
   }
 
   updateView();
