@@ -65,6 +65,8 @@ const init = async () => {
 
   signOutBtn.onclick = async () => {
     authClient.logout();
+	signOutBtn.disabled = true;
+	signInBtn.disabled = false;
     updateView();
   };
 };
