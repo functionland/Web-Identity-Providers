@@ -21,9 +21,10 @@ const pubKey = Buffer.from(pubKey64, 'base64'); // Ta-da
 console.log(pubKey);
 
 const init = async () => {
-  const options = {
-	  identity: pubKey
-  };
+  const options = {};
+  if(pubKey && pubKey !==''){
+	options.identity = pubKey;
+  }
   authClient = await AuthClient.create(options);
 
   const updateView = () => {
