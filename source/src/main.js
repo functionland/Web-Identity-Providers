@@ -1,5 +1,5 @@
 import { Actor, HttpAgent, Principal } from "@dfinity/agent";
-import { DelegationIdentity } from "@dfinity/identity";
+import { DelegationIdentity, Ed25519KeyIdentity } from "@dfinity/identity";
 import { AuthClient } from "@dfinity/auth-client";
 import {MDCSnackbar} from '@material/snackbar';
 const Buffer = require("buffer").Buffer;
@@ -21,9 +21,8 @@ const pubKey64 = urlParams.get('pubKey64');
 const init = async () => {
   const options = {};
   if(pubKey64 && pubKey64 !==''){
-	const pubKey = JSON.parse(Buffer.from(pubKey64, 'base64')); // Ta-da
-	console.log(pubKey);
-	options.identity = pubKey;
+	const pubKey = Buffer.from(pubKey64, 'base64');
+	options.identity = Ed25519KeyIdentity.fromJSON(pubKey);
   }
   authClient = await AuthClient.create(options);
 
