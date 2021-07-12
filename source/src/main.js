@@ -23,7 +23,7 @@ console.log(pubKey);
 const init = async () => {
   const options = {};
   if(pubKey && pubKey !==''){
-	options.identity = pubKey;
+	options.identity = JSON.parse(pubKey);
   }
   authClient = await AuthClient.create(options);
 
