@@ -4,8 +4,6 @@ import { AuthClient } from "@dfinity/auth-client";
 import {MDCSnackbar} from '@material/snackbar';
 const Buffer = require("buffer").Buffer;
 
-alert('hi');
-
 const signInBtn = document.getElementById("signinBtn");
 const signOutBtn = document.getElementById("signoutBtn");
 const snackbar = new MDCSnackbar(document.querySelector('.mdc-snackbar'));
@@ -34,7 +32,6 @@ const init = async () => {
     const principal = identity.getPrincipal();
     if (identity instanceof DelegationIdentity) {
 	  signInBtn.disabled = true;
-	  alert(JSON.stringify(identity.getDelegation().toJSON(), undefined, 2));
       const publicKey = (identity.getDelegation().toJSON()).publicKey;
 	  const publicKey64 = new Buffer(publicKey).toString("base64");
 	  //redirect to app here
