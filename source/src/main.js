@@ -34,7 +34,7 @@ const init = async () => {
     const principal = identity.getPrincipal();
     if (identity instanceof DelegationIdentity) {
 	  signInBtn.disabled = true;
-	  msgEl.innerText = JSON.stringify(identity.getDelegation().toJSON(), undefined, 2);
+	  alert(JSON.stringify(identity.getDelegation().toJSON(), undefined, 2));
       const publicKey = (identity.getDelegation().toJSON()).publicKey;
 	  const publicKey64 = new Buffer(publicKey).toString("base64");
 	  //redirect to app here
