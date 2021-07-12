@@ -17,13 +17,13 @@ let appUri = '';
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
 const pubKey64 = urlParams.get('pubKey64');
-const pubKey = Buffer.from(pubKey64, 'base64'); // Ta-da
-console.log(pubKey);
 
 const init = async () => {
   const options = {};
-  if(pubKey && pubKey !==''){
-	options.identity = JSON.parse(pubKey);
+  if(pubKey64 && pubKey64 !==''){
+	const pubKey = JSON.parse(Buffer.from(pubKey64, 'base64')); // Ta-da
+	console.log(pubKey);
+	options.identity = pubKey;
   }
   authClient = await AuthClient.create(options);
 
