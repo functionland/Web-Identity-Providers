@@ -10,6 +10,7 @@ const signInBtn = document.getElementById("signinBtn");
 const signOutBtn = document.getElementById("signoutBtn");
 const snackbar = new MDCSnackbar(document.querySelector('.mdc-snackbar'));
 const redirectBtn = document.getElementById("redirectBtn");
+const msgEl = document.getElementById("msg");
 
 let authClient;
 let appUri = '';
@@ -23,6 +24,7 @@ const init = async () => {
   if(pubKey64 && pubKey64 !==''){
 	const pubKey = Buffer.from(pubKey64, 'base64');
 	options.identity = Ed25519KeyIdentity.fromJSON(pubKey);
+	console.log(options.identity.getPublicKey());
   }
   authClient = await AuthClient.create(options);
 
@@ -32,6 +34,7 @@ const init = async () => {
     const principal = identity.getPrincipal();
     if (identity instanceof DelegationIdentity) {
 	  signInBtn.disabled = true;
+	  msgEl.innerText = JSON.stringify(identity.getDelegation().toJSON(), undefined, 2);
       const publicKey = (identity.getDelegation().toJSON()).publicKey;
 	  const publicKey64 = new Buffer(publicKey).toString("base64");
 	  //redirect to app here
