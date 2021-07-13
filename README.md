@@ -113,6 +113,6 @@ WebBrowser.openBrowserAsync(url, {
 
 ## Folder structure
 
-root: root folder contains the compiled files to run the proxy. You can simply download it and open index.html to see it in action.
-/images: images contain the demo gif and not related to codes
-/source: this folder contains the source code of proxy and can be compiled using npm
+- root: root folder contains the compiled files to run the proxy. You can simply download it and open index.html to see it in action.
+- /images: images contain the demo gif and not related to codes
+- /source: this folder contains the source code of proxy and can be compiled using npm
