@@ -1,6 +1,6 @@
 ## Project Description
 
-Web Identity Providers is a proxy page to allow mobile applications connect with identity providers, such as Internet Identity by DFinity, which use postMessage to send authentication result back to requestor.
+Web Identity Providers is a proxy page to allow mobile applications connect with identity providers, such as Internet Identity by DFinity, which use postMessage to send authentication result back to requestor. You can read about [Internet Identity here](https://sdk.dfinity.org/docs/ic-identity-guide/what-is-ic-identity.html).
 
 ## Why?
 
