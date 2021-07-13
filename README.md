@@ -53,7 +53,7 @@ for https cloning:
 git clone https://github.com/functionland/Web-Identity-Providers.git
 ```
 ```bash
-cd Web-Identity-Providers
+cd Web-Identity-Providers/source
 ```
 
 ## Install requirements
@@ -69,8 +69,22 @@ npm install
 
 ## Run
 
-1- Create a keypair in your application if you want (you can let the identity provider creates it too). Use Ed25519KeyIdentity for "Internet Identity"
+If you just need a quick demo you can open index.html and you see how it looks and works(partially). 
+
+Run the below code to just run it locally:
+```js
+npm run develop
 ```
+
+Run the below code to compile it:
+```js
+npm run build
+```
+
+## Usage
+
+1- Create a keypair in your application if you want (you can let the identity provider creates it too). Use Ed25519KeyIdentity for "Internet Identity"
+```js
 import { Ed25519KeyIdentity } from "@dfinity/identity";
 
 const keyPair = Ed25519KeyIdentity.generate();
@@ -82,7 +96,7 @@ const publicKey64 = new Buffer(publicKey).toString("base64");
 ```
 
 2- Create a Linking listener to react to response after authentication is done. the user id, principal, will be sent back in event in parameter "principal" and public key encoded with base64 in parameter "publicKey64".
-```
+```js
 Linking.addEventListener('url', (event)=>{
     let { path, queryParams } = Linking.parse(event.url);
     let principal = queryParams.principal;
@@ -91,8 +105,14 @@ Linking.addEventListener('url', (event)=>{
 ```
 
 3- Open url to proxy.
-```
+```js
 WebBrowser.openBrowserAsync(url, {
     createTask: true,
 });
 ```
+
+## Folder structure
+
+root: root folder contains the compiled files to run the proxy. You can simply download it and open index.html to see it in action.
+/images: images contain the demo gif and not related to codes
+/source: this folder contains the source code of proxy and can be compiled using npm
