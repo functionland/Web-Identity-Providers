@@ -34,16 +34,6 @@ you can also check whether you already have NodeJs installed by running the foll
 git --version
 ```
 
-Now you need to install expo-cli. If you want to know more about expo check their website. [Expo](https://docs.expo.io/)
-```
-npm install --global expo-cli
-```
-
-Optional: if you prefer yarn you can install yarn.
-```
-npm install --global yarn
-```
-
 ## Clone the project
 
 You can clone the project by running the command below to your terminal:
@@ -59,10 +49,6 @@ cd Web-Identity-Providers/source
 ## Install requirements
 
 you can install the requirements with command:
-```bash
-yarn install
-```
-or (do not use both)
 ```bash
 npm install
 ```
