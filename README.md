@@ -55,6 +55,8 @@ npm install
 
 ## Run
 
+Change the deep link address 'expo://...' to your actual app address so that user can return to your application after login.
+
 If you just need a quick demo you can open index.html and you see how it looks and works(partially). 
 
 Run the below code to just run it locally:
