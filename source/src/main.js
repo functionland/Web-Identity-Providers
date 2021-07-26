@@ -32,10 +32,10 @@ const init = async () => {
     const principal = identity.getPrincipal();
     if (identity instanceof DelegationIdentity) {
 	  signInBtn.disabled = true;
-      const publicKey = (identity.getDelegation().toJSON()).publicKey;
-	  const publicKey64 = new Buffer(publicKey).toString("base64");
+      const delegation = (identity.getDelegation().toJSON());
+	  const delegation64 = new Buffer(delegation).toString("base64");
 	  //redirect to app here
-	  appUri = "exp://192.168.68.117:19000/--/Photos?principal="+principal+"&publicKey64="+publicKey64;
+	  appUri = "exp://192.168.68.117:19000/--/Photos?principal="+principal+"&delegation64="+delegation64;
 	  
 	  snackbar.open();
 	  snackbar.timeoutMs = -1;
