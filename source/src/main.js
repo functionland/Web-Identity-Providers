@@ -34,16 +34,22 @@ const init = async () => {
     if (identity instanceof DelegationIdentity) {
 	  signInBtn.disabled = true;
       const publicKey = (identity.getDelegation().toJSON())?.delegations[0]?.delegation?.pubkey;
+	  console.log('logged in');
+	  console.log((identity.getDelegation().toJSON()));
+	  const signature = (identity.getDelegation().toJSON())?.delegations[0]?.signature;
 	  const publicKey64 = new Buffer(publicKey).toString("base64");
-	  //redirect to app here
-	  appUri = "exp://192.168.68.117:19000/--/Photos?principal="+principal+"&publicKey64="+publicKey64;
+	  const signature64 = new Buffer(signature).toString("base64");
 	  
+	  //redirect to app here
+	  appUri = "exp://192.168.68.117:19000/--/Photos?principal="+principal+"&publicKey64="+publicKey64+"&signature64="+signature64;
+	  console.log(appUri);
 	  snackbar.open();
 	  snackbar.timeoutMs = -1;
 	  setTimeout(()=>{
 		window.location = appUri;
 	  },20);
     }else{
+		console.log('not logged in');
 		signOutBtn.disabled = true;
 	}
   }
