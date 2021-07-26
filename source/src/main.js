@@ -20,8 +20,9 @@ const pubKey64 = urlParams.get('pubKey64');
 const init = async () => {
   const options = {};
   if(pubKey64 && pubKey64 !==''){
-	const pubKey = Buffer.from(pubKey64, 'base64');
+	const pubKey = new Buffer(pubKey64, 'base64').toString();
 	options.identity = Ed25519KeyIdentity.fromJSON(pubKey);
+	console.log(pubKey);
 	console.log(options.identity.getPublicKey());
   }
   authClient = await AuthClient.create(options);
