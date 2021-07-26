@@ -34,14 +34,13 @@ const init = async () => {
     if (identity instanceof DelegationIdentity) {
 	  signInBtn.disabled = true;
       const publicKey = (identity.getDelegation().toJSON())?.delegations[0]?.delegation?.pubkey;
-	  console.log('logged in');
 	  console.log((identity.getDelegation().toJSON()));
-	  const signature = (identity.getDelegation().toJSON())?.delegations[0]?.signature;
-	  const publicKey64 = new Buffer(publicKey).toString("base64");
-	  const signature64 = new Buffer(signature).toString("base64");
+	  const delegations = JSON.stringify(identity.getDelegation().toJSON());
+	  console.log('logged in');
+	  const delegations64 = new Buffer(delegations).toString("base64");
 	  
 	  //redirect to app here
-	  appUri = "exp://192.168.68.117:19000/--/Photos?principal="+principal+"&publicKey64="+publicKey64+"&signature64="+signature64;
+	  appUri = "exp://192.168.68.117:19000/--/Photos?principal="+principal+"&delegations64="+delegations64;
 	  console.log(appUri);
 	  snackbar.open();
 	  snackbar.timeoutMs = -1;
@@ -65,6 +64,7 @@ const init = async () => {
   signInBtn.onclick = async () => {
     authClient.login({
       identityProvider: 'https://identity.ic0.app/',
+	  maxTimeToLive: 1000000000000000,
       onSuccess: updateView
     });
   };
