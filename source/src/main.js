@@ -33,7 +33,9 @@ const init = async () => {
     if (identity instanceof DelegationIdentity) {
 	  signInBtn.disabled = true;
       const delegation = JSON.stringify(identity.getDelegation().toJSON());
+	  alert(delegation);
 	  const delegation64 = new Buffer(delegation).toString("base64");
+	  alert(delegation64);
 	  //redirect to app here
 	  appUri = "exp://192.168.68.117:19000/--/Photos?principal="+principal+"&delegation64="+delegation64;
 	  
