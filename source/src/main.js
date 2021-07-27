@@ -16,6 +16,8 @@ let appUri = '';
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
 const pubKey64 = urlParams.get('pubKey64');
+const environment = urlParams.get('environment') || 'prod';
+const IIUrl_local = urlParams.get('IIUrl') || 'http://192.168.68.118:8000/?canisterId=rwlgt-iiaaa-aaaaa-aaaaa-cai';
 
 const init = async () => {
   const options = {};
@@ -62,8 +64,14 @@ const init = async () => {
   };
 
   signInBtn.onclick = async () => {
+	  let IIUrl = '';
+	  if(environment === 'local'){
+		IIUrl = IIUrl_local;
+	  }else{
+		IIUrl = 'https://identity.ic0.app/';
+	  }
     authClient.login({
-      identityProvider: 'https://identity.ic0.app/',
+      identityProvider: IIUrl,
 	  maxTimeToLive: 1000000000000000,
       onSuccess: updateView
     });
